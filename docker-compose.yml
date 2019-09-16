@@ -1,0 +1,15 @@
+version: "3.4"
+services:
+  shipohi:
+    container_name: shipohi
+    build:
+      context: .
+      target: development
+      dockerfile: Dockerfile
+    command: python3 ./manage.py runserver 0.0.0.0:8080
+    ports:
+      - 8080:8080
+    environment:
+      - ENV=dev
+    volumes:
+      - .:/app
